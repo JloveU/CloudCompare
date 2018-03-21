@@ -41,21 +41,12 @@ class qDummyPlugin : public QObject, public ccStdPluginInterface
 	Q_INTERFACES(ccStdPluginInterface)
 	
 	// replace qDummy by the plugin name (IID should be unique - let's hope your plugin name is unique ;)
-	Q_PLUGIN_METADATA(IID "cccorp.cloudcompare.plugin.qDummy")
+	Q_PLUGIN_METADATA(IID "cccorp.cloudcompare.plugin.qDummy" FILE "info.json")
 
 public:
 
 	//! Default constructor
 	explicit qDummyPlugin( QObject* parent = nullptr );
-
-	// inherited from ccPluginInterface
-	virtual QString getName() const override;
-	virtual QString getDescription() const override;
-	virtual QIcon getIcon() const override;
-
-	virtual ReferenceList getReferences() const override;
-	virtual ContactList getAuthors() const override;
-	virtual ContactList getMaintainers() const override;
 	
 	// inherited from ccStdPluginInterface
 	virtual void onNewSelection( const ccHObject::Container& selectedEntities ) override;

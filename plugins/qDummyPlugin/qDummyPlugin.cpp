@@ -25,64 +25,9 @@
 // actions (pointers) and other members
 qDummyPlugin::qDummyPlugin( QObject* parent )
 	: QObject( parent )
+	, ccStdPluginInterface( ":/CC/plugin/qDummyPlugin/info.json" )
 	, m_action( nullptr )
 {
-}
-
-QString qDummyPlugin::getName() const
-{
-	return QString( "Dummy Plugin" );
-}
-
-QString qDummyPlugin::getDescription() const
-{
-	return QString( "This is a description of the marvelous Dummy plugin. It does nothing." );
-}
-
-// This method should return the plugin icon. It will be used mainly
-// if your plugin as several actions in which case CC will create a
-// dedicated sub-menu entry with this icon.
-QIcon qDummyPlugin::getIcon() const
-{
-	// Open qDummyPlugin.qrc (text file), update the "prefix" and the
-	// icon filenames. Then save it with the correct name (yourPlugin.qrc).
-	// Remove the original qDummyPlugin.qrc file.
-	return QIcon(":/CC/plugin/qDummyPlugin/icon.png");
-}
-
-// Return an optional list of references for the plugin.
-// This might be a journal article or a post online.
-// Note that the url is optional - if included it will add a clickable link for the reference.
-ccPluginInterface::ReferenceList qDummyPlugin::getReferences() const
-{
-	return ccPluginInterface::ReferenceList{
-		Reference{ "The unsuccessful self-treatment of a case of “writer's block”", "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1311997/" },
-		Reference{ "Sword swallowing and its side effects", "http://www.bmj.com/content/333/7582/1285" },
-		Reference{ "I thought of creating this wonderful plugin while I was hiking up Mont Blanc &#x26f0;", QString() },
-	};
-}
-
-// Return a list of the authors of the plugin.
-// Note that the email address is optional - if included, it will add a mailto
-// link for the email with a default subject of "CloudCompare <plugin name>".
-ccPluginInterface::ContactList qDummyPlugin::getAuthors() const
-{
-	return ccPluginInterface::ContactList{
-		Contact{ "Daniel Girardeau-Montaut", "daniel.girardeau@gmail.com" },
-	};
-}
-
-// Return a list of the maintainers of the plugin.
-// Note that the email address is optional - if included, it will add a mailto
-// link for the email with a default subject of "CloudCompare <plugin name>".
-ccPluginInterface::ContactList qDummyPlugin::getMaintainers() const
-{
-	return ccPluginInterface::ContactList{
-		Contact{ "Daniel Girardeau-Montaut", "daniel.girardeau@gmail.com" },
-		Contact{ "Andy Maloney", "asmaloney@gmail.com" },
-		Contact{ "Romain Janvier", "romain.janvier@hotmail.fr" },
-		Contact{ "Ihave Noemail", QString() },
-	};
 }
 
 // This method should enable or disable your plugin actions
